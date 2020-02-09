@@ -7,14 +7,6 @@ import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 
-/**
- * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
- * l'admin. Questo modulo importa AdminRoutingModule.
- * 
- * @author Vittorio Valent
- * 
- * @see AdminRoutingModule
- */
 @NgModule({
   declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, UserDetailsComponent],
   imports: [

@@ -8,14 +8,15 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    console.log('AuthGuard activated')
+    console.log('AuthGuard activated');
     return this.isAdmin();
   }
 
   isAdmin(): boolean {
 
     if (JSON.parse(localStorage.getItem('currentUser')) !== null) {
-      if (JSON.parse(localStorage.getItem('currentUser')).usertype.toString() === 'ADMIN') {
+      if (JSON.parse(localStorage.getItem('currentUser')).usertype.toString() === 'ADMIN'
+          || JSON.parse(localStorage.getItem('currentUser')).usertype.toString() === 'USER') {
         return true;
       }
     } else {
