@@ -1,0 +1,41 @@
+<!-- Questo template, essendo un monoblocco, non ha bisogno del grid layout. Le classi di stile sono 
+custom e sono definite nel CSS-->
+
+<div class="menu">
+    <button class="menubtn">
+        <!-- Per navigare tra le component usiamo il routerLink, specificando il persorso da seguire-->
+        <a [routerLink]="['/admin-dashboard']">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
+    </button>
+    <!-- quando si clicca sul bottone la variabile "isAccountCollapsed" cambia valore booleano-->
+    <button class="menubtn" (click)="accountcollapse()">
+        <i class="fas fa-user"></i> Account
+    </button>
+    <!-- La direttiva *ngIf mostra il contenuto del div solo se "isAccountCollapsed" è true -->
+    <div *ngIf="isAccountCollapsed">
+        <button class="collapsebtn">
+            <a [routerLink]="['/admin-dashboard/work-in-progress']">
+                <i class="fas fa-user-edit"></i> Edit Profile
+            </a>
+        </button>
+        <button class="collapsebtn">
+            <a [routerLink]="['/admin-dashboard/work-in-progress']">
+                <i class="fas fa-file-alt"></i>General Info
+            </a>
+        </button>
+    </div>
+    <button class="menubtn" (click)="userscollapse()">
+        <i class="fas fa-users"></i>Users
+    </button>
+    <div *ngIf="isUserCollapsed">
+        <button class="collapsebtn">
+            <a [routerLink]="['/admin-dashboard/users']">
+                <i class="fas fa-edit"></i> Manage Users
+            </a>
+        </button>
+    </div>
+    <button class="menubtn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>Logout
+    </button>
+</div>

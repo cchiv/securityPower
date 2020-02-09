@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th>
+            Username
+          </th>
+          <th>
+            Password
+          </th>
+          <th>
+            Usertype
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Delete
+          </th>
+          <th>
+            Details
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="username" [(ngModel)]="dto.username">
+          </td>
+          <td>
+            <input placeholder="password" [(ngModel)]="dto.password">
+          </td>
+          <td>
+            <select placeholder="usertype" [(ngModel)]="dto.usertype">
+              <option value="ADMIN">ADMIN</option>
+              <option value="USER">USER</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(dto)"><i class="fas fa-plus"></i>Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()"><i class="fas fa-times"></i>Clear</button>
+          </td>
+          <td>
+            <button (click)="close()">Close Details</button>
+          </td>
+        </tr>
+        <tr *ngFor="let dto of dtolist">
+          <td>
+            <input [(ngModel)]="dto.username">
+          </td>
+          <td>
+            <input [(ngModel)]="dto.password">
+          </td>
+          <td>
+            <select [(ngModel)]="dto.usertype">
+              <option [selected]="dto.usertype===ADMIN" value="ADMIN">ADMIN</option>
+              <option [selected]="dto.usertype===USER" value="USER">USER</option>
+            </select>
+          </td>
+          <td>
+            <button (click)=update(dto)><i class="fas fa-edit"></i>Edit</button>
+          </td>
+          <td>
+            <button (click)="delete(dto.id)"><i class="fas fa-trash"></i>Delete</button>
+          </td>
+          <td>
+            <button (click)="select(dto)"><i class="fas fa-binoculars"></i>Details</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-1">
+      <!-- colonna vuota per centrare i dettagli-->
+    </div>
+    <div class="col-md-10">
+      <app-user-details *ngIf="selected" [dto]="selected"></app-user-details>
+    </div>
+    <div class="col-md-1">
+      <!-- colonna vuota per centrare i dettagli-->
+    </div>
+  </div>
+</div>

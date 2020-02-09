@@ -1,0 +1,17 @@
+<div class="row no-gutters" style="height: 8vh">
+  <div class="col-md-12 no-gutters">
+    <!-- Questo è il selector di HeaderComponent. Richiama la component in maniera statica-->
+    <app-header></app-header>
+  </div>
+</div>
+<div class="row no-gutters" style="height: 92vh">
+  <div class="col-md-2 no-gutters" style="height: 92vh">
+    <!-- Questo è il selector di AdminMenuCOmponent. Richiama la component in maniera statica-->
+    <app-admin-menu></app-admin-menu>
+  </div>
+  <div class="col-md-10 no-gutters" style="height: 92vh">
+    <!-- Qui sotto viene eseguito il routing della dashboard. I persorsi delle component
+    da mostrare qui devono essere figli del percorso "/admin-dashboard"-->
+    <router-outlet></router-outlet>
+  </div>
+</div>
