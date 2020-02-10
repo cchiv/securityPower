@@ -8,9 +8,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class SecurityMapperApplicationTests {
-
+	
 	@Test
-	void contextLoads() {
+	void contextLoads()   {
+
 	}
 
 }
