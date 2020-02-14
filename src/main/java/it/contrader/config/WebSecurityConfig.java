@@ -51,14 +51,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					.disable()
 					.authorizeRequests()
 					.antMatchers("/authenticate").permitAll()
-					.antMatchers("/test/**")
-					.permitAll()
+					.antMatchers("/test/**").permitAll()
+					.antMatchers("/h2-console/**").permitAll()
 					.anyRequest()
 					.authenticated()
 					.and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
 					.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.cors();
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		httpSecurity.headers().frameOptions().disable();
 	}
 	
 }
